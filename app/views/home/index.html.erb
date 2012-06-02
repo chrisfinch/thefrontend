@@ -1,2 +1,20 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section id="wrapper">
+	
+	<div id="masthead">
+		<h1 id="logo">thefrontend.co</h1>
+		<h2 id="tagline">The Jobsite for Web Developers</h2>
+		<input type="text" id="search" name="search" value="Search Jobs">
+	</div>
+	
+	<form action="/job/add/" method="POST">
+
+		<input type="text" name="title" class="name" />
+
+		<input type="text" name="description" class="desc" />
+
+		<input type="submit" id="submit" />
+
+	</form>
+
+
+</section>

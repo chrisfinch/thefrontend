@@ -51,7 +51,7 @@ Thefrontend::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
 
-  match 'job/add/:title/:description/' => 'job#add'
+  match 'job/add/' => 'job#add'
 
   # See how all your routes lay out with "rake routes"
 

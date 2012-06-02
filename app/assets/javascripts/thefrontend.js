@@ -4,7 +4,7 @@ window.Thefrontend = {
   Views: {},
   Routers: {},
   init: function() {
-    alert('Hello from Backbone!');
+    //alert('Hello from Backbone!');
   }
 };
 
