@@ -6,3 +6,15 @@ As I'll be developing the site entirely in my spare time it is likley that the l
 
 Wish me luck!
 
+## Install
+
+### Prequisites
+
+- [rvm](https://rvm.io/)
+
+### Steps
+
+- Download/clone/fork
+- `cd` into the new application directory
+- Say `yes` at the prompt
+- Run `bundle install`
