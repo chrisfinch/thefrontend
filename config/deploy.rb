@@ -1,25 +1,39 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+require "rvm/capistrano"
+require "bundler/capistrano"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+load "deploy/assets"
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :application, "thefrontend"
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+set :scm, :git
+set :repository,  "https://github.com/chrisfinch/thefrontend.git"
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+server "ec2-176-34-120-195.eu-west-1.compute.amazonaws.com", :app, :web, :db, :primary => true
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "thefrontend_ubuntu.pem")]
+set :user, "ubuntu"
+set :use_sudo, false
+set :deploy_to, "/var/www/#{application}"
+set :deploy_via, :remote_cache
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+set :rvm_ruby_string, "1.9.3@tfe" 
+
+before "deploy:setup", "rvm:install_ruby"
+
+after "deploy:update_code", "rvm:trust_rvmrc"
+after "deploy:restart", "deploy:cleanup"
+
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  desc "Restart passenger"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
+
+namespace :rvm do
+  desc "Trust rvmrc file"
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{current_release}"
+  end
+end
