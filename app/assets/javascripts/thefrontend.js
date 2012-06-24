@@ -5,6 +5,8 @@ window.Thefrontend = {
 	Routers: {},
 	init: function() {
 		
+		console.log('test init', typeof Thefrontend.Routers.Jobs);
+
 		new Thefrontend.Routers.Jobs();
 		Backbone.history.start();
 
