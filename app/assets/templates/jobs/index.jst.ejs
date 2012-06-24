@@ -2,10 +2,14 @@
 
 <form id="new-job">
   <p>
-    <label for="new-job-title">Title</label>
-    <input name="new-job-title" id="new-job-title" type="text">
+	<label for="new-job-title">Title</label>
+	<input name="new-job-title" id="new-job-title" type="text">
   </p>
   <textarea name="new-job-content" id="new-job-content"></textarea>
+  <p>
+	<label for="new-job-keywords">Keywords</label>
+	<input name="new-job-keywords" id="new-job-keywords" type="text">
+  </p>  
   <input type="submit">
 </form><!-- #new-job -->
 
@@ -13,9 +17,22 @@
 
 <% for (var i = 0, len = jobs.models.length; i < len; i++) { %>
   <div class="job">
-    <h3><%= jobs.models[i].get('title') %></h3>
-    <p><%= jobs.models[i].get('description') %></p>
-    <p><a href="#" class="remove-job" id="<%= jobs.models[i].get('id') %>">Remove Job</a></p>
+	<h3><%= jobs.models[i].get('title') %></h3>
+	<p><%= jobs.models[i].get('description') %></p>
+
+	<% if (typeof jobs.models[i].get('keywords') == 'string') { %>
+
+		<span class="keyword"><%= jobs.models[i].get('keywords') %></span>
+
+	<% } else { 
+		for (var x = 0, len = jobs.models[i].get('keywords'); x < len; x++) { %>
+
+			<span class="keyword"><%= jobs.models[i].get('keywords')[x] %></span>
+
+		<% } 
+	} %>
+
+	<p><a href="#" class="remove-job" id="<%= jobs.models[i].get('id') %>">Remove Job</a></p>
   </div><!-- .job -->
   <hr>
 <% } %>
