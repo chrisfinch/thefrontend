@@ -1,5 +1,7 @@
 Thefrontend.Collections.Jobs = Backbone.Collection.extend({
 
-  url: '/jobs'
+  url: '/jobs',
+
+  model: Thefrontend.Models.Jobs
 
 });
