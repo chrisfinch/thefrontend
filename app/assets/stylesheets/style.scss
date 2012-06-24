@@ -40,12 +40,28 @@ body {
 		line-height: 30px;
 		height: 30px;
 		color: #aaa;
+
+		@include trans;
+
+		text-shadow: 0 0 3px #aaa;
+
+		&:hover {
+			text-shadow: none;
+		}			
 	}
 
 	h2 {
 		font-size: 42px;
 		line-height: 42px;
 		height: 42px;
+
+		@include trans;
+
+		text-shadow: 0 0 3px #000;	
+
+		&:hover {
+			text-shadow: none;
+		}	
 	}
 
 	#search {
