@@ -1,9 +1,9 @@
 class JobsController < ApplicationController
 
-  respond_to :json, :html
+  respond_to :json
 
   def index
-    respond_with(@jobs = Job.all.map { |job| job.to_json })
+    respond_with Job.all
   end
 
   def new
