@@ -17,3 +17,6 @@
 # Sublime
 *.sublime-project
 *.sublime-workspace
+
+#OSX
+.DS_Store

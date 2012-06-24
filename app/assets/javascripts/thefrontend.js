@@ -4,7 +4,10 @@ window.Thefrontend = {
 	Views: {},
 	Routers: {},
 	init: function() {
-		//alert('Hello from Backbone!');
+		
+		new Thefrontend.Routers.Jobs();
+		Backbone.history.start();
+
   	}
 };
 
