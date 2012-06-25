@@ -15,7 +15,9 @@
 
 <hr>
 
-<% for (var i = 0, len = jobs.models.length; i < len; i++) { %>
+<%= jobs.length %>
+
+<% for (var i = 0, len = jobs.length; i < len; i++) { %>
   <div class="job">
 	<h3><%= jobs.models[i].get('title') %></h3>
 	<p><%= jobs.models[i].get('description') %></p>
@@ -24,15 +26,18 @@
 
 		<span class="keyword"><%= jobs.models[i].get('keywords') %></span>
 
-	<% } else { 
+	<% } else if (typeof jobs.models[i].get('keywords') == 'array') { 
 		for (var x = 0, len = jobs.models[i].get('keywords'); x < len; x++) { %>
 
 			<span class="keyword"><%= jobs.models[i].get('keywords')[x] %></span>
 
 		<% } 
-	} %>
+	} else { %>
 
-	<p><a href="#" class="remove-job" id="<%= jobs.models[i].get('id') %>">Remove Job</a></p>
+			<span class="keywords">No Keywords ( keywords == null :-S )</span>
+
+	<% } %>
+	<p><a href="#" class="remove-job" id="<%= jobs.models[i].get('_id') %>">Remove Job</a></p>
   </div><!-- .job -->
   <hr>
 <% } %>
