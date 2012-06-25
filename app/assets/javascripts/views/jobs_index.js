@@ -13,7 +13,7 @@ Thefrontend.Views.JobsIndex = Backbone.View.extend({
   
 	render: function() {
 		this.$el.html(this.template({
-			jobs: this.collection
+			jobs: this.collection.toJSON()
 		}));
 		return this;
 	},

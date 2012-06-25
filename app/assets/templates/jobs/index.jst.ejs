@@ -15,29 +15,21 @@
 
 <hr>
 
-<%= jobs.length %>
-
-<% for (var i = 0, len = jobs.length; i < len; i++) { %>
+<% _.each(jobs, function (job) { %>
   <div class="job">
-	<h3><%= jobs.models[i].get('title') %></h3>
-	<p><%= jobs.models[i].get('description') %></p>
-
-	<% if (typeof jobs.models[i].get('keywords') == 'string') { %>
-
-		<span class="keyword"><%= jobs.models[i].get('keywords') %></span>
-
-	<% } else if (typeof jobs.models[i].get('keywords') == 'array') { 
-		for (var x = 0, len = jobs.models[i].get('keywords'); x < len; x++) { %>
-
-			<span class="keyword"><%= jobs.models[i].get('keywords')[x] %></span>
-
-		<% } 
+	<h3><%= job.title %></h3>
+	<p><%= job.description %></p>
+	<% if (typeof job.keywords == 'string') { %>
+		<span class="keyword"><%= job.keywords %></span>
+	<% } else if (typeof job.keywords == 'array') { 
+		_.each(job.keywords, function (keyword) { %>
+			<span class="keyword"><%= keyword %></span>
+		<% }); 
 	} else { %>
-
-			<span class="keywords">No Keywords ( keywords == null :-S )</span>
-
+		<span class="keywords">No Keywords ( keywords == null :-S )</span>
 	<% } %>
-	<p><a href="#" class="remove-job" id="<%= jobs.models[i].get('_id') %>">Remove Job</a></p>
+	<p><a href="#" class="remove-job" id="<%= job._id %>">Remove Job</a></p>
   </div><!-- .job -->
   <hr>
-<% } %>
+<% }); %>
+
