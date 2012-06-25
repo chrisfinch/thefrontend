@@ -33,7 +33,9 @@ body {
 #masthead {
 	height: 300px;
 	width: 610px;
-	margin: 200px auto;
+	margin: 0 auto;
+	top: 200px;
+	position: relative;
 
 	h1 {
 		font-size: 30px;
