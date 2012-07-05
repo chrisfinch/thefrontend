@@ -4,7 +4,8 @@ Thefrontend.Views.JobsIndex = Backbone.View.extend({
 
 	events: {
 		'submit #new-job': 'createJob',
-		'click .remove-job': 'removeJob'
+		'click .remove-job': 'removeJob',
+		'click .update-job': 'updateJob'
 	},
 
 	initialize: function() {
@@ -40,17 +41,38 @@ Thefrontend.Views.JobsIndex = Backbone.View.extend({
 
 	removeJob: function(event) {
 		event.preventDefault();
-		this.collection.get(event.target.id).destroy();
+		this.collection.get($(event.target).closest('form').attr('id')).destroy();
 		this.collection.trigger('reset');
+	},
+
+	updateJob: function (event) {
+		event.preventDefault();
+		
+		var id = $(event.target).closest('form').attr('id'),
+				form = $('#' + id),
+				job = this.collection.get(id);
+		
+		job.save({
+			title: form.find('input[name=title]').val(),
+			description: form.find('textarea[name=description]').val(),
+			keywords: form.find('textarea[name=keywords]').val()
+		}, {
+			success: function (model, response) {
+				// Do stuff here...
+			},
+			error: function (model, response) {
+				// Handle error here...
+			}
+		});
 	},
   
 	handleError: function(job, response) {
 		if (response.status == 422) {
 			var errors = $.parseJSON(response.responseText).errors;  
-			for (attribute in errors) {
+			for (var attribute in errors) {
 				var messages = errors[attribute];
 				for (var i = 0, len = messages.length; i < len; i++) {
-					message = messages[i];
+					var message = messages[i];
 					alert("" + attribute + " " + message);
 				}
 			}

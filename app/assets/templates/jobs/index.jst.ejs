@@ -16,20 +16,20 @@
 <hr>
 
 <% _.each(jobs, function (job) { %>
+
   <div class="job">
-	<h3><%= job.title %></h3>
-	<p><%= job.description %></p>
-	<% if (typeof job.keywords == 'string') { %>
-		<span class="keyword"><%= job.keywords %></span>
-	<% } else if (typeof job.keywords == 'array') { 
-		_.each(job.keywords, function (keyword) { %>
-			<span class="keyword"><%= keyword %></span>
-		<% }); 
-	} else { %>
-		<span class="keywords">No Keywords ( keywords == null :-S )</span>
-	<% } %>
-	<p><a href="#" class="remove-job" id="<%= job._id %>">Remove Job</a></p>
+
+    <form id="<%= job._id %>" class="edit">
+
+      <input type="text" name="title" value="<%= job.title %>" /> 
+      <textarea name="description"><%= job.description %></textarea>
+      <textarea name="keywords"><%= job.keywords %></textarea>
+
+      <button type="submit" class="remove-job">Remove Job</button>
+      <button type="submit" class="update-job">Update Job</button>
+
+    </form>
+
   </div><!-- .job -->
   <hr>
 <% }); %>
-
