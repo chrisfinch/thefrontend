@@ -18,7 +18,7 @@ class JobsController < ApplicationController
 
     createFields = {}
 
-    Job.relevantFields.each do |field|
+    Job.storageFields.each do |field|
       createFields[field] = params[field.to_sym]
     end
 
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 
     job = Job.find(params[:id])
 
-    Job.relevantFields.each do |field|
+    Job.storageFields.each do |field|
       job[field.to_sym] = params[field.to_sym]
     end
 
