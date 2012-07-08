@@ -1,4 +1,5 @@
 class Job
+
   include Mongoid::Document
   
   field :title, type: String
@@ -6,7 +7,7 @@ class Job
   field :keywords, type: String
 
   # Get an array of the field names on this Document. Does not include _id.
-  def self.storageFields
+  def self.storage_fields
 
     keys = Job.fields.keys
     keys.delete('_id')

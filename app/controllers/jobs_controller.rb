@@ -16,13 +16,13 @@ class JobsController < ApplicationController
   # Create a new Job in the database
   def create
 
-    createFields = {}
+    create_fields = {}
 
-    Job.storageFields.each do |field|
-      createFields[field] = params[field.to_sym]
+    Job.storage_fields.each do |field|
+      create_fields[field] = params[field.to_sym]
     end
 
-    respond_with Job.create(createFields)
+    respond_with Job.create(create_fields)
 
   end
   
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 
     job = Job.find(params[:id])
 
-    Job.storageFields.each do |field|
+    Job.storage_fields.each do |field|
       job[field.to_sym] = params[field.to_sym]
     end
 
