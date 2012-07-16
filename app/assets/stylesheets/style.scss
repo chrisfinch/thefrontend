@@ -14,12 +14,23 @@
 	border-radius: $rad;	
 }
 
+@mixin helv {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;	
+}
+
 /* Typography
 ================================================= */
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	@include helv;
 	font-weight: lighter;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	@include trans;
+	@include helv;	
 }
 
 /* Structure
@@ -75,7 +86,7 @@ body {
 
 		@include brad(3px);
 
-		font-family: Helvetica, Arial, sans-serif;
+		@include helv;
 		font-weight: lighter;
 
 		font-size: 24px;
@@ -96,6 +107,23 @@ body {
 			color: #000;		
 		}
 
+	}
+
+	#homeInfoButtons {
+		padding: 24px 0;
+		width: 610px;
+		text-align: center;						
+		li {
+			display: inline;
+			padding: 0 12px;
+			a {
+				font-size: 14px;
+				border-bottom: 2px solid #fff;				
+				&:hover {
+					border-bottom: 2px solid #000;
+				}
+			}
+		}
 	}
 
 }
