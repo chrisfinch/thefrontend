@@ -6,6 +6,7 @@ window.Thefrontend = {
 	init: function() {
 
 		new Thefrontend.Routers.Jobs();
+		new Thefrontend.Routers.static();		
 		Backbone.history.start();
 
   	}
