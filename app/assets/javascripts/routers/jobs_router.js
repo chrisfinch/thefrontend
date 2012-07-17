@@ -1,7 +1,7 @@
 Thefrontend.Routers.Jobs = Backbone.Router.extend({
 
 	routes: {
-		'': 'index'
+		'jobs': 'index'
 	},
   
 	initialize: function() {

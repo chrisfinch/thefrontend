@@ -1,6 +1,6 @@
-Thefrontend.Views.who = Backbone.View.extend({
+Thefrontend.Views.home = Backbone.View.extend({
 	
-	template: JST['static/who'],
+	template: JST['home/home'],
 
 	/*
 	 * Initialize with the template-id
