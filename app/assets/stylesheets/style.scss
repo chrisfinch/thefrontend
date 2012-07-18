@@ -42,10 +42,9 @@ a {
 }
 
 #masthead {
-	height: 300px;
 	width: 610px;
 	margin: 0 auto;
-	top: 200px;
+	padding: 200px 0 0 0;
 	position: relative;
 
 	h1 {
@@ -125,5 +124,10 @@ a {
 			}
 		}
 	}
+}
 
+#homeInfoPanel {
+	height: 300px;
+	width: 610px;
+	margin: 0 auto;	
 }
