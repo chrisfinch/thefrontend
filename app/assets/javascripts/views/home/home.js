@@ -15,6 +15,10 @@ Thefrontend.Views.home = Backbone.View.extend({
 		// nada..
 	},
 
+	onShow: function () {
+		//console.log('homeview onshow');
+	},
+
 	searchFieldEvents: function (event) {
 		var $e = $(event.target);
 		switch (event.type) {
@@ -28,8 +32,7 @@ Thefrontend.Views.home = Backbone.View.extend({
 				break;	
 			case 'keyup':
 				if (event.keyCode == 13) {
-					console.log('enter key pressed.');
-					// submit!
+					Thefrontend.searchRouter.navigate('search/'+$e.val(), {trigger: true});
 				}
 				break;
 		}

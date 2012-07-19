@@ -1,0 +1,18 @@
+<h2>Jobs Search Results for: <%= query %></h2>
+
+<ul id="searchResults">
+<% _.each(jobs, function (job) { %>
+
+  <li class="job" data-id="<%= job.id %>">
+
+  	<div class="title"><%= job.title %></div>
+  	<div class="company"><%= job.company %></div>
+  	<div class="tags"><%= job.tags %></div>
+  	<div class="type"><%= job.type %></div>
+  	<div class="salary"><%= job.salary %></div>
+  	<div class="link"><a href="#jobs/<%= job.id %>">View &raquo;</a></div>
+
+  </li><!-- .job -->
+ 
+<% }); %>
+</ul>

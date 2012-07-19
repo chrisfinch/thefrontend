@@ -5,8 +5,9 @@ window.Thefrontend = {
 	Routers: {},
 	init: function() {
 
-		new Thefrontend.Routers.Jobs();
-		new Thefrontend.Routers.static();		
+		Thefrontend.jobsRouter = new Thefrontend.Routers.Jobs();
+		Thefrontend.searchRouter = new Thefrontend.Routers.search();	
+		Thefrontend.staticRouter = new Thefrontend.Routers.static();		
 		Backbone.history.start();
 
   	}

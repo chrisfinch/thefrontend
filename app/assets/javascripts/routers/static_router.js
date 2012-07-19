@@ -37,7 +37,7 @@ Thefrontend.Routers.static = Backbone.Router.extend({
 
 	home: function(test) {
 		this.homeView = new Thefrontend.Views.home();
-		$('#wrapper').html(this.homeView.render().el);
+		RegionManager.show(this.homeView);
 	},
 
 	index: function(test) {
