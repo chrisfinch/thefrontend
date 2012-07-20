@@ -1,6 +1,14 @@
 <section class="searchResultsWrapper">
 
-	<h2>Jobs Search Results for: <%= query %></h2>
+	<nav id="menuBar">
+		<ul>
+			<li id="searchField">
+				<label for="search">Show me:</label>
+				<input type="text" id="search" name="search" value="<%= query %>" data-val="<%= query %>">			
+
+			</li>
+		</ul>
+	</nav>	
 
 	<ul id="searchResults">
 	</ul>
