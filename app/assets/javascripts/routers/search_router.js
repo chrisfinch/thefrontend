@@ -6,7 +6,7 @@ Thefrontend.Routers.search = Backbone.Router.extend({
   
 	initialize: function() {
 		this.jobs = new Thefrontend.Collections.Jobs();
-		this.jobs.fetch();		
+		this.jobs.fetch();	
 	},
 
 	search: function (query) {

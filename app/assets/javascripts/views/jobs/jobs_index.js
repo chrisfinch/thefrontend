@@ -12,6 +12,7 @@ Thefrontend.Views.JobsIndex = Backbone.View.extend({
   },
   
   render: function() {
+    // apparently this function isn't ever even being called???
     $(this.el).html(this.template({
       jobs: this.collection
     }));
