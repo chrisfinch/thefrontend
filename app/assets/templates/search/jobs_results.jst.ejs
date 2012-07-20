@@ -1,18 +1,8 @@
-<h2>Jobs Search Results for: <%= query %></h2>
+<section class="searchResultsWrapper">
 
-<ul id="searchResults">
-<% _.each(jobs, function (job) { %>
+	<h2>Jobs Search Results for: <%= query %></h2>
 
-  <li class="job" data-id="<%= job.id %>">
+	<ul id="searchResults">
+	</ul>
 
-  	<div class="title"><%= job.title %></div>
-  	<div class="company"><%= job.company %></div>
-  	<div class="tags"><%= job.tags %></div>
-  	<div class="type"><%= job.type %></div>
-  	<div class="salary"><%= job.salary %></div>
-  	<div class="link"><a href="#jobs/<%= job.id %>">View &raquo;</a></div>
-
-  </li><!-- .job -->
- 
-<% }); %>
-</ul>
+</section>

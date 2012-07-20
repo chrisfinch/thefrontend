@@ -12,10 +12,17 @@ Thefrontend.Views.jobs_results = Backbone.View.extend({
   },
   
   render: function() {
+
     $(this.el).html(this.template({
-      jobs: this.collection.toJSON(),
       query: this.options.query
     }));
+
+    // Results loop sub-view
+    this.results_loop = new Thefrontend.Views.results_loop({ 
+      el: this.$("#searchResults"),
+      collection: this.collection
+    }).render();
+
     return this;
   }
 
