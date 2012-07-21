@@ -16,7 +16,11 @@ Thefrontend.Views.home = Backbone.View.extend({
 	},
 
 	onShow: function () {
-		//console.log('homeview onshow');
+		console.log('inshow')
+		// Results loop sub-view
+		this.sign_in = new Thefrontend.Views.sign_in({ 
+			el: this.$("#menuBar ul")
+		}).render();
 	},
 
 	searchFieldEvents: function (event) {

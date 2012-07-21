@@ -57,6 +57,12 @@ a {
 	height: 100%;
 }
 
+nav#menuBar {
+	ul {
+		float: left;
+	}
+}
+
 #masthead {
 	width: 610px;
 	padding: 18px;
@@ -96,7 +102,7 @@ a {
 
 	#search {
 		margin: 24px 0 0 0;
-		width: 608px;
+		width: 606px;
 
 		background-color: #fff;
 		border: 2px solid #aaa;

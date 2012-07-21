@@ -46,7 +46,7 @@ Thefrontend.Routers.static = Backbone.Router.extend({
 	home: function(test) {
 		if (!$('#masthead').length) {
 			this.homeView = new Thefrontend.Views.home();
-			RegionManager.show(this.homeView);
+			RegionManager.show(this.homeView);			
 		}
 	},
 
