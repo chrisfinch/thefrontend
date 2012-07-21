@@ -11,45 +11,43 @@ Thefrontend.Routers.static = Backbone.Router.extend({
 		this.who = new Thefrontend.Views.who('#who');
 	},
   
+	// Nasty duplication in these 3 mini views - could be cleaned up later
+
 	who: function() {
-		if (!this.homeView) {
-			this.home();
-		}
+		this.home();
 		this.whoView = new Thefrontend.Views.who({
 			el: '#homeInfoPanel'
 		});
 		this.homeView.$el.find('#homeInfoButtons a').removeClass('active');
 		this.homeView.$el.find('.who').addClass('active');
-		this.whoView.render();
+		this.whoView.render().$el.css('opacity', 1);
 	},
 
 	why: function() {
-		if (!this.homeView) {
-			this.home();
-		}
+		this.home();
 		this.whyView = new Thefrontend.Views.why({
 			el: '#homeInfoPanel'
 		});
 		this.homeView.$el.find('#homeInfoButtons a').removeClass('active');
 		this.homeView.$el.find('.why').addClass('active');		
-		this.whyView.render();
+		this.whyView.render().$el.css('opacity', 1);
 	},
 
 	what: function() {
-		if (!this.homeView) {
-			this.home();
-		}
+		this.home();
 		this.whatView = new Thefrontend.Views.what({
 			el: '#homeInfoPanel'
 		});
 		this.homeView.$el.find('#homeInfoButtons a').removeClass('active');
 		this.homeView.$el.find('.what').addClass('active');		
-		this.whatView.render();
+		this.whatView.render().$el.css('opacity', 1);
 	},	
 
 	home: function(test) {
-		this.homeView = new Thefrontend.Views.home();
-		RegionManager.show(this.homeView);
+		if (!$('#masthead').length) {
+			this.homeView = new Thefrontend.Views.home();
+			RegionManager.show(this.homeView);
+		}
 	},
 
 	index: function(test) {
