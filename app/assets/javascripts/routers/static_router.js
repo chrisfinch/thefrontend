@@ -15,24 +15,36 @@ Thefrontend.Routers.static = Backbone.Router.extend({
 		if (!this.homeView) {
 			this.home();
 		}
-		this.whoView = new Thefrontend.Views.who();
-		$('#homeInfoPanel').html(this.whoView.render().el);
+		this.whoView = new Thefrontend.Views.who({
+			el: '#homeInfoPanel'
+		});
+		this.homeView.$el.find('#homeInfoButtons a').removeClass('active');
+		this.homeView.$el.find('.who').addClass('active');
+		this.whoView.render();
 	},
 
 	why: function() {
 		if (!this.homeView) {
 			this.home();
 		}
-		this.whyView = new Thefrontend.Views.why();
-		$('#homeInfoPanel').html(this.whyView.render().el);
+		this.whyView = new Thefrontend.Views.why({
+			el: '#homeInfoPanel'
+		});
+		this.homeView.$el.find('#homeInfoButtons a').removeClass('active');
+		this.homeView.$el.find('.why').addClass('active');		
+		this.whyView.render();
 	},
 
 	what: function() {
 		if (!this.homeView) {
 			this.home();
 		}
-		this.whatView = new Thefrontend.Views.what();
-		$('#homeInfoPanel').html(this.whatView.render().el);
+		this.whatView = new Thefrontend.Views.what({
+			el: '#homeInfoPanel'
+		});
+		this.homeView.$el.find('#homeInfoButtons a').removeClass('active');
+		this.homeView.$el.find('.what').addClass('active');		
+		this.whatView.render();
 	},	
 
 	home: function(test) {

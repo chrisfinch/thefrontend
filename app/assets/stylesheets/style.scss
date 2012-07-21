@@ -14,6 +14,12 @@
 	border-radius: $rad;	
 }
 
+@mixin shad ($shad) {
+	-moz-box-shadow: $shad;
+	-webkit-box-shadow: $shad;
+	box-shadow: $shad;
+}
+
 @mixin helv {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;	
 }
@@ -37,6 +43,15 @@ a {
 /* Structure
 ================================================= */
 
+.boxEffect {
+	background-color: rgba(255, 255, 255, 0.5);
+	@include shad(0px 0px 6px 2px rgba(0, 0, 0, 0.4));
+	@include brad(5px);
+	&.big	{
+		@include brad(15px);
+	}
+}
+
 #wrapper {
 	width: 100%;
 	height: 100%;
@@ -44,9 +59,11 @@ a {
 
 #masthead {
 	width: 610px;
-	margin: 0 auto;
-	padding: 200px 0 0 0;
-	position: relative;
+	padding: 18px;
+	top: 182px;
+	left: 50%;
+	margin: 0 0 0 -323px;
+	position: absolute;
 
 	h1 {
 		font-size: 30px;
@@ -118,7 +135,8 @@ a {
 			padding: 0 12px;
 			a {
 				font-size: 14px;
-				&:hover {
+				&:hover,
+				&.active {
 					border-bottom: 2px solid #000;
 				}
 			}
@@ -127,17 +145,23 @@ a {
 }
 
 #homeInfoPanel {
-	height: 300px;
+	height: auto;
 	width: 610px;
-	margin: 0 auto;	
+	position: absolute;
+	padding: 18px;
+	margin: 0 0 0 -323px;	
+	top: 432px;
+	left: 50%;
+	@include trans;
 }
 
 /* Search results
 ================================================= */
 
 .searchResultsWrapper {
-	
+	padding: 4px;
 	nav#menuBar {
+		margin: 0 0 24px 0;
 		padding: 4px;
 		#searchField {
 			label {
@@ -200,7 +224,11 @@ a {
 ================================================= */
 
 #single {
-	padding: 18px;
+	padding: 4px;
+
+	#job {
+		padding: 4px;
+	}
 
 	h1 {
 		font-size: 30px;
