@@ -218,7 +218,7 @@ nav#menuBar {
 		top: 120%;		
 		opacity: 0;
 		
-		display: none;
+		
 
 		-moz-animation-name: signInFormAppear;
 		-moz-animation-timing-function: ease-in-out;
@@ -233,6 +233,25 @@ nav#menuBar {
 		-webkit-animation-duration: 0.7s;
 		-webkit-animation-direction: normal;
 		-webkit-animation-fill-mode: forwards;
+
+		&.hidden {
+			
+			display: none;
+
+			-moz-animation-name: signInFormHide;
+			-moz-animation-timing-function: ease-in-out;
+			-moz-animation-iteration-count: 1;
+			-moz-animation-duration: 0.7s;
+			-moz-animation-direction: normal;
+			-moz-animation-fill-mode: forwards;
+
+			-webkit-animation-name: signInFormHide;
+			-webkit-animation-timing-function: ease-in-out;
+			-webkit-animation-iteration-count: 1;
+			-webkit-animation-duration: 0.7s;
+			-webkit-animation-direction: normal;
+			-webkit-animation-fill-mode: forwards;			
+		}
 
 		input.text {
 			width: 180px;
@@ -271,6 +290,31 @@ nav#menuBar {
 		opacity: 1;
 	}
 }
+
+@-moz-keyframes signInFormHide {
+	0% {
+		display: block;
+		top: 80%;		
+		opacity: 1;
+	}
+	100% {
+		top: 120%;		
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes signInFormHide {
+	0% {
+		display: block;
+		top: 80%;		
+		opacity: 1;
+	}
+	100% {
+		top: 120%;		
+		opacity: 0;
+	}
+}
+
 
 /* Search results
 ================================================= */

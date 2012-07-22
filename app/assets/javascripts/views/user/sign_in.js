@@ -7,21 +7,43 @@ Thefrontend.Views.sign_in = Backbone.View.extend({
     'focus #username': 'fieldsUsername',
     'focus #password': 'fieldsPassword',
     'blur #username': 'fieldsUsername',
-    'blur #password': 'fieldsPassword',    
+    'blur #password': 'fieldsPassword',
+    'keydown #username': 'submit',
+    'keydown #password': 'submit',
+    'click #submit': 'submit'
   },
   
   initialize: function() {
     //this.collection.on('reset', this.render, this);
+    var _this = this;
   },
   
-  signIn: function () {
+  signIn: function (event) {
+    event.preventDefault();
     this.$el.find('#signInForm')
-    .show()
+    .removeClass('hidden')
     .find('#username')
     .focus()
     .val(
       this.$el.find('#username').val()
     );
+  },
+
+  submit: function (event) {
+    if ((event.type == 'keydown' && event.keyCode == 13) ||
+      event.type == 'click') {
+      event.preventDefault();
+      // log in here..
+      this.user = this.$el.find('#username').val();
+      this.pass = this.$el.find('#password').val();      
+      console.log('trying to sign in with: ', this.user, ' and ', this.pass);
+    }
+  },
+
+  reset: function (event) {
+    event.preventDefault();
+    console.log('reset clled')
+    this.$el.find('#signInForm').addClass('hidden');
   },
 
   fieldsUsername: function (event) {
