@@ -1,13 +1,17 @@
-<section id="single">
+<nav id="menuBar" class="boxEffect clearfix">
+  <ul></ul>
+</nav>
 
-	<section id="job" class="boxEffect">
-		<h1 class="title"><%= job.title %></h1>
+<section id="single" class="job boxEffect container">
 
-		<h2 class="company"><%= job.company %></h2>
+	<h1 class="title"><%= job.title %></h1>
 
-		<span class="tags"><%= job.tags %></span>
+	<h2 class="company"><%= job.company %></h2>
 
-		<p class="desc"><%= job.description %></p>
-	</section>
+	<h3 class="salary">£<%= job.salary %>/yr</h2>
+
+	<span class="tags"><%= job.tags %></span>
+
+	<p class="desc"><%= job.description %></p>
 
 </section>
