@@ -32,17 +32,16 @@ Thefrontend.Views.sign_in = Backbone.View.extend({
   submit: function (event) {
     if ((event.type == 'keydown' && event.keyCode == 13) ||
       event.type == 'click') {
-      event.preventDefault();
+      //event.preventDefault();
       // log in here..
-      this.user = this.$el.find('#username').val();
-      this.pass = this.$el.find('#password').val();      
-      console.log('trying to sign in with: ', this.user, ' and ', this.pass);
+      //this.user = this.$el.find('#username').val();
+      //this.pass = this.$el.find('#password').val();      
+      //console.log('trying to sign in with: ', this.user, ' and ', this.pass);
     }
   },
 
   reset: function (event) {
     event.preventDefault();
-    console.log('reset clled')
     this.$el.find('#signInForm').addClass('hidden');
   },
 
@@ -55,7 +54,7 @@ Thefrontend.Views.sign_in = Backbone.View.extend({
         }
         break;
       case 'focusout':
-        if ($e.val() == '') {
+        if ($e.val() === '') {
           $e.val($e.data('val'));
         }
         break;
@@ -71,7 +70,7 @@ Thefrontend.Views.sign_in = Backbone.View.extend({
         }
         break;
       case 'focusout':
-        if ($e.val() == '') {
+        if ($e.val() === '') {
           $e.val($e.data('val'))[0].type = 'text';
         }
         break;

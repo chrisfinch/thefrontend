@@ -4,11 +4,17 @@
 
 	<div id="signInForm" class="boxEffect hover clearfix hidden">
 		
-		<form action="">
-			<input type="text" id="username" class="text" value="Username" data-val="Username">
-			<input type="text" id="password" class="text" value="Password" data-val="Password">
+		<form action="/login" method="get">
+			<input type="text" id="username" name="username" class="text" placeholder="Username" data-val="Username">
+			<input type="text" id="password" name="password" class="text" placeholder="Password" data-val="Password">
 			<input type="submit" id="submit" class="submit button" value="Sign In">
 		</form>
+
+    <form action="/users" method="post">
+      <input type="text" class="text" name="username" />
+      <input type="text" class="text" name="password" />
+      <input type="submit" class="submit button" value="Register" />
+    </form>
 
 	</div>
 
