@@ -4,6 +4,8 @@ require 'digest/sha2'
 class User
 
   include Mongoid::Document
+  include Thefrontend::Mongo
+  include Thefrontend::Utils
 
   field :hashed_password, type: String
   field :username, type: String
@@ -20,7 +22,7 @@ class User
     @password = password
 
     if !self.salt
-      self.salt = Utils.random_string(20)
+      self.salt = random_string(20)
     end
 
     self.hashed_password = User.encrypt(@password, self.salt)
