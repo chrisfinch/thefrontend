@@ -1,7 +1,7 @@
 Thefrontend.Routers.Jobs = Backbone.Router.extend({
 
 	routes: {
-		'jobs': 'index',
+		'jobs/add': 'add',
 		'jobs/:jobId': 'job'
 	},
   
@@ -16,6 +16,13 @@ Thefrontend.Routers.Jobs = Backbone.Router.extend({
 			jobId: jobId
 		});
 		RegionManager.show(jobView);
+	},
+
+	add: function () {
+		var addJobView = new Thefrontend.Views.job_add({
+			collection: this.jobs
+		});
+		RegionManager.show(addJobView);	
 	},
 
 	index: function() {

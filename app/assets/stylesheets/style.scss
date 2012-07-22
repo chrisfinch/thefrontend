@@ -43,12 +43,14 @@ a {
 /* Elements
 ================================================= */
 
-input.text {
+input.text,
+textarea.text {
 	background-color: #fff;
 	border: 1px solid #aaa;
 	font-weight: lighter;
 	color: #aaa;
 	outline: none;
+	resize: none;
 	@include brad(3px);
 	@include trans;
 	@include helv;	
