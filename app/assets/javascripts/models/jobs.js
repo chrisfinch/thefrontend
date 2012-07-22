@@ -1,5 +1,12 @@
 Thefrontend.Models.Jobs = Backbone.Model.extend({
 
-	idAttribute: '_id' // Had to be changed due to the fact that the id in mongo is _id and not id BEN CONSTABLE.
+	idAttribute: '_id',
 
+  // Make sure that the correct fields are initialsed to arrays
+  defaults: function () {
+    return {
+      'keywords': [],
+      'tags': []
+    };
+  }
 });
