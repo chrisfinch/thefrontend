@@ -1,7 +1,7 @@
 module Thefrontend
-  module Mongo
 
-    # Mongo mixins (Thefrontend::Mongo)
+  # Mongo mixins (Thefrontend::Mongo)
+  module Mongo
 
       # Mixin with Mongoid::Document
       # Get an array of the field names on the Document. Does not include _id.
@@ -9,8 +9,7 @@ module Thefrontend
         keys = self.fields.keys
         keys.delete('_id')
         keys.delete('_type')
-        
-        return keys
+        keys
       end
 
   end
