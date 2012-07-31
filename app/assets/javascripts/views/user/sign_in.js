@@ -13,46 +13,43 @@ Thefrontend.Views.sign_in = Backbone.View.extend({
     'click #submit': 'submit'
   },
   
-  initialize: function() {
-    //this.collection.on('reset', this.render, this);
-    var _this = this;
-  },
-  
   signIn: function (event) {
     event.preventDefault();
+
     this.$el.find('#signInForm')
-    .removeClass('hidden')
-    .find('#username')
-    .focus()
-    .val(
-      this.$el.find('#username').val()
-    );
+      .removeClass('hidden')
+      .find('#username')
+      .focus();
   },
 
   submit: function (event) {
     if ((event.type == 'keydown' && event.keyCode == 13) ||
       event.type == 'click') {
-      //event.preventDefault();
-      // log in here..
-      //this.user = this.$el.find('#username').val();
-      //this.pass = this.$el.find('#password').val();      
-      //console.log('trying to sign in with: ', this.user, ' and ', this.pass);
+      event.preventDefault();
+    
+      Thefrontend.auth.login(
+        this.$el.find('#username').val(),
+        this.$el.find('#password').val()
+      );
     }
   },
-
+  
   reset: function (event) {
     event.preventDefault();
     this.$el.find('#signInForm').addClass('hidden');
   },
-
+  
   fieldsUsername: function (event) {
     var $e = $(event.target);
+
     switch (event.type) {
+
       case 'focusin':
         if ($e.val() == $e.data('val')) {
           $e.val('');
         }
         break;
+
       case 'focusout':
         if ($e.val() === '') {
           $e.val($e.data('val'));
@@ -63,12 +60,15 @@ Thefrontend.Views.sign_in = Backbone.View.extend({
 
   fieldsPassword: function (event) {
     var $e = $(event.target);
+
     switch (event.type) {
+
       case 'focusin':
         if ($e.val() == $e.data('val')) {        
           $e.val('')[0].type = 'password';
         }
         break;
+        
       case 'focusout':
         if ($e.val() === '') {
           $e.val($e.data('val'))[0].type = 'text';
