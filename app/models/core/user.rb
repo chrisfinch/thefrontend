@@ -35,11 +35,14 @@ class User
 
   # Autheticate a user against the given username and password
   def self.authenticate(username, password)
-    user = User.find_by(username: username)
-    if user.hashed_password == User.encrypt(password, user.salt)
-      user
-    else
-      nil
+    user = User.find_by(username: username) if User.where(username: username).exists?
+    
+    if (!user.nil?)
+      if user.hashed_password == User.encrypt(password, user.salt)
+        user
+      else
+        nil
+      end
     end
   end
 
